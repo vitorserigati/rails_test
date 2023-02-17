@@ -1,6 +1,9 @@
+require_relative 'api_constraints'
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  namespace :api, defaults: { format: :json } do
+    scope module: :v1,
+          constraints: ApiConstraints.new(version: 1, default: true) do
+      resources # todo
+    end
+  end
 end
