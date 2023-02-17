@@ -20,3 +20,5 @@ end
 gem "active_model_serializers", "~> 0.10.13"
 
 gem "letter_opener", "~> 1.8"
+
+gem "devise_token_auth", "~> 1.2"
