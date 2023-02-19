@@ -10,3 +10,11 @@
 | Database     |Postgresql|
 | Rails Version|7.0.4.2   |
 
+
+|             Routes           |
+|               ---            |
+|       Type     |     Route   |     Function    |
+|        ---     |      ---    |         ---     |
+|       POST     |    /auth    |     Create User |
+|       POST     |   /auth/sign_in |   user signin|
+
