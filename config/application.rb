@@ -12,6 +12,10 @@ module BankingTransactions
     config.load_defaults 7.0
     config.autoload_paths += %w[#{config.root}/lib]
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
+    # Provisory workaround for storage problems
+    config.session_store :cookie_store, key: '_interslice_session'
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use config.session_store, config.session_options
 
     # Configuration for the application, engines, and railties goes here.
     #
