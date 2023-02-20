@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ActiveRecord::Base
-  has_one :wallet
+  has_one :wallet, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable,
@@ -12,9 +12,9 @@ class User < ActiveRecord::Base
          :confirmable,
          :trackable
   include DeviseTokenAuth::Concerns::User
+  validates :name, presence: true
 
   before_validation :set_uid
-
   after_create :create_wallet
 
   private
