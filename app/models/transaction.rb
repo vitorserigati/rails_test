@@ -1,5 +1,7 @@
 class Transaction < ApplicationRecord
-  belongs_to :wallet
+  belongs_to :from_wallet, class_name: 'Wallet'
+  belongs_to :to_wallet, class_name: 'Wallet'
 
-  validates :amount, :type, presence: true
+  validates :amount, presence: true, numericality: true
+  validates :transfer_type, presence: true
 end
