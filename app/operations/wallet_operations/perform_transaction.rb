@@ -9,6 +9,6 @@ class WalletOperations::PerformTransaction
     Transaction.create!(from_wallet: @from_wallet, to_wallet: @to_wallet, amount: @amount)
     @from_wallet.update!(balance: @from_wallet.balance - @amount)
     @to_wallet.update!(balance: @to_wallet.balance + @amount)
-    @to_wallet
+    @from_wallet
   end
 end

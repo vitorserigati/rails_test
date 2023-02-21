@@ -17,6 +17,7 @@ class Api::V1::UserController < ApplicationController
   private
 
   def format_user_info(user)
-    { id: user.id, name: user.name, wallet: { id: user.wallet.id } }
+    { id: user.id, first_name: user.first_name, middle_name: user.middle_name, last_name: user.last_name,
+      wallet: { id: user.wallet.id } }
   end
 end

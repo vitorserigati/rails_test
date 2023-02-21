@@ -12,15 +12,19 @@ class Api::V1::WalletController < ApplicationController
     errors = WalletOperations::ValidateNewTransaction.new(from_wallet: @wallet, to_wallet: wallet,
                                                           amount: params[:amount]).execute!
     if errors.empty?
-      WalletOperations::PerformTransaction.new(from_wallet: @wallet, to_wallet: wallet,
-                                               amount: params[:amount]).execute!
-      render json: @wallet, serializer: WalletSerializer
+      @wallet = WalletOperations::PerformTransaction.new(from_wallet: @wallet, to_wallet: wallet,
+                                                         amount: params[:amount]).execute!
+      render json: @wallet, serializer: WalletSerializer, status: :created
     else
       render json: errors
     end
   end
 
   private
+
+  def show
+    current_api_user.wallet
+  end
 
   def find_wallet(wallet_id)
     Wallet.where(id: wallet_id).first
