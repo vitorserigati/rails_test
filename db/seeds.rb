@@ -6,8 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-user_one = User.create(name: 'John Doe', email: 'doejohn@email.com', password: 'password',
+user_one = User.create(first_name: 'John ', middle_name: 'B.', last_name: 'Doe', phone_number: '(11)9-025-8564',
+                       cpf: '12345678910', email: 'doejohn@email.com', password: 'password',
                        password_confirmation: 'password')
-user_two = User.create(name: 'Jane Doe', email: 'doejane@email.com', password: 'password',
+user_two = User.create(first_name: 'Jane', middle_name: 'B.', last_name: 'Doe', phone_number: '(11)9-025-8564',
+                       cpf: '12345678910', email: 'doejane@email.com', password: 'password',
                        password_confirmation: 'password')
-Transaction.create(from_wallet: user_one.wallet, to_wallet: user_two.wallet, amount: 50.0, transfer_type: 'deposit')

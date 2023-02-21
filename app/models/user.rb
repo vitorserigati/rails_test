@@ -12,7 +12,11 @@ class User < ActiveRecord::Base
          :confirmable,
          :trackable
   include DeviseTokenAuth::Concerns::User
-  validates :name, presence: true
+  validates :first_name, presence: true
+  validates :middle_name, presence: true
+  validates :last_name, presence: true
+  validates :cpf, presence: true
+  validates :phone_number, presence: true
 
   before_validation :set_uid
   after_create :create_wallet
