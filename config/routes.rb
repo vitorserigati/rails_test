@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     scope module: :v1,
           constraints: ApiConstraints.new(version: 1, default: true) do
             resources :wallet, except: %i[create update destroy]
+            resources :user, only: %i[index show]
+            post 'transaction', action: :create_transaction, controller: 'wallet'
           end
   end
 end
