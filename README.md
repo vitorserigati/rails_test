@@ -2,23 +2,23 @@
 
 Esta API foi criada para participar de um processo seletivo. Suas funções são:
 
-[x] Um usuário pode se cadastrar e posteriormente realizar login. (Utilizar gem Devise para agilizar o processo)
+- [x] Um usuário pode se cadastrar e posteriormente realizar login. (Utilizar gem Devise para agilizar o processo)
 
-[x] Cada usuário possui uma carteira virtual. Essa carteira possui o saldo e um histórico de transações.
+- [x] Cada usuário possui uma carteira virtual. Essa carteira possui o saldo e um histórico de transações.
 
-[x] Todo usuário, ao se registrar, recebe um crédito de 100,00 em sua carteira.
+- [x] Todo usuário, ao se registrar, recebe um crédito de 100,00 em sua carteira.
 
-[x] Se o usuário estiver logado, ele terá acesso a uma lista com todos os usuários do sistema.
+- [x] Se o usuário estiver logado, ele terá acesso a uma lista com todos os usuários do sistema.
 
-[x] Qualquer usuário pode realizar uma transferência para qualquer outro usuário. Desde que possua saldo suficiente.
+- [x] Qualquer usuário pode realizar uma transferência para qualquer outro usuário. Desde que possua saldo suficiente.
 
-[x] O sistema precisa manter um histórico de transações, para o usuário poder acompanhar o balanço de sua carteira, com saídas e entradas.
+- [x] O sistema precisa manter um histórico de transações, para o usuário poder acompanhar o balanço de sua carteira, com saídas e entradas.
 
-[x] O usuário, ao acessar sua carteira, vai poder ver seu saldo, seu histórico de transações e solicitar saque.
+- [x] O usuário, ao acessar sua carteira, vai poder ver seu saldo, seu histórico de transações e solicitar saque.
 
-[x] O saque nada mais é do que digitar um valor menor ou igual ao que ele possui de saldo, adicionar no histórico de transações esse saque e diminuir o saldo da carteira.
+- [x] O saque nada mais é do que digitar um valor menor ou igual ao que ele possui de saldo, adicionar no histórico de transações esse saque e diminuir o saldo da carteira.
 
-[x] Criar um campo de busca no cabeçalho (visível em todas as páginas), para o usuário pesquisar ATIVOS da bolsa de valores (PETR4, PETR3, ITSA4, BIDI4, VALE3, etc). Fazer uma integração com a API da alphavantage.(https://www.alphavantage.co/documentation/). Utilizar o endpoint “https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=#{searched_symbol}.SA&interval=5min&apikey=PEQV59FJ89YWFKP5” para obter os resultados. Mostrar o resultado do campo Time Series (Daily) numa tabela, apenas para fins de consulta. 
+- [x] Criar um campo de busca no cabeçalho (visível em todas as páginas), para o usuário pesquisar ATIVOS da bolsa de valores (PETR4, PETR3, ITSA4, BIDI4, VALE3, etc). Fazer uma integração com a API da alphavantage.(https://www.alphavantage.co/documentation/). Utilizar o endpoint “https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=#{searched_symbol}.SA&interval=5min&apikey=PEQV59FJ89YWFKP5” para obter os resultados. Mostrar o resultado do campo Time Series (Daily) numa tabela, apenas para fins de consulta. 
 
 
 ## Utilização da API
@@ -64,6 +64,11 @@ Esta API foi criada para participar de um processo seletivo. Suas funções são
         - GET/ api/v1/wallet - Recupera dados da própria carteira, como balance e transações. Parâmetros: headers
 
         - GET/ api/v1/alphavantage - Trás informações sobre Ativos da bolsa do campo "Time Series (Daily)" conforme requisitado. Parâmetros: symbol -> Nome do ativo. Sem o ".SA". 
+
+
+
+
+
 
 
 
