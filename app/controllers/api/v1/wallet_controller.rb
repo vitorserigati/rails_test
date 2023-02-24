@@ -6,14 +6,26 @@ class Api::V1::WalletController < ApplicationController
     render json: @wallet, serializer: WalletSerializer
   end
 
+  def withdraw
+    errors = WalletOperations::ValidateNewTransaction.new(from_wallet: @wallet, to_wallet: @wallet,
+                                                          amount: params[:amount]).execute!
+    if errors.empty?
+      @wallet = WalletOperations::PerformTransaction.new(from_wallet: @wallet, to_wallet: @wallet,
+                                                         amount: params[:amount], transaction_type: 'withdraw').execute!
+
+      render json: @wallet, serializer: WalletSerializer, status: :created
+    else
+      render json: errors
+    end
+  end
+
   def create_transaction
     wallet = find_wallet(params[:to_wallet])
-    params[:amount]
     errors = WalletOperations::ValidateNewTransaction.new(from_wallet: @wallet, to_wallet: wallet,
                                                           amount: params[:amount]).execute!
     if errors.empty?
       @wallet = WalletOperations::PerformTransaction.new(from_wallet: @wallet, to_wallet: wallet,
-                                                         amount: params[:amount]).execute!
+                                                         amount: params[:amount], transaction_type: 'transfer').execute!
       render json: @wallet, serializer: WalletSerializer, status: :created
     else
       render json: errors

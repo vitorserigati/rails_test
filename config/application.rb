@@ -13,6 +13,7 @@ module BankingTransactions
     config.autoload_paths += %w[#{config.root}/lib]
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
     config.autoload_paths << "#{Rails.root}/app/operations"
+
     # Provisory workaround for storage problems
     config.session_store :cookie_store, key: '_interslice_session'
     config.middleware.use ActionDispatch::Cookies

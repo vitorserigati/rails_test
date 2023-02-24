@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_21_011331) do
     t.uuid "from_wallet_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.uuid "to_wallet_id", null: false
+    t.uuid "to_wallet_id"
     t.index ["from_wallet_id"], name: "index_transactions_on_from_wallet_id"
     t.index ["to_wallet_id"], name: "index_transactions_on_to_wallet_id"
   end
