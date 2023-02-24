@@ -7,6 +7,8 @@ Rails.application.routes.draw do
             resources :wallet, except: %i[create update destroy]
             resources :user, only: %i[index show]
             post 'transaction', action: :create_transaction, controller: 'wallet'
+
+           get 'alphavantage', action: :index, controller: 'alphavantageapi' 
           end
   end
 end
